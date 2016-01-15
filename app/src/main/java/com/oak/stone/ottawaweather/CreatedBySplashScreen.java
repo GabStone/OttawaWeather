@@ -6,6 +6,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 
 public class CreatedBySplashScreen extends Activity {
@@ -20,7 +23,32 @@ public class CreatedBySplashScreen extends Activity {
         // Remove Notification Bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        final ImageView oakTree = (ImageView) findViewById(R.id.imageView);
+        final Animation animation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.empty_animation);
+        oakTree.startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+                //TODO
+                // this is where we are going to direct to the main menu
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+
         setContentView(R.layout.activity_created_by_splash_screen);
+
     }
 
     @Override
