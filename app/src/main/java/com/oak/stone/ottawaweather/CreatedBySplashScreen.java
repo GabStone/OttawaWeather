@@ -1,6 +1,7 @@
 package com.oak.stone.ottawaweather;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +10,9 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.oak.stone.ottawaweather.R;
+import com.oak.stone.ottawaweather.WeatherActivity;
 
 
 public class CreatedBySplashScreen extends Activity {
@@ -19,6 +23,8 @@ public class CreatedBySplashScreen extends Activity {
 
         // Remove Title Bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        setContentView(R.layout.activity_created_by_splash_screen);
 
         // Remove Notification Bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -35,9 +41,10 @@ public class CreatedBySplashScreen extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
-                //TODO
-                // this is where we are going to direct to the main menu
+                System.out.println("ON ANIMATION END _______________________");
+                finish();
+                Intent intent = new Intent(getBaseContext(), WeatherActivity.class);
+                startActivity(intent);
             }
 
             @Override
@@ -47,7 +54,6 @@ public class CreatedBySplashScreen extends Activity {
         });
 
 
-        setContentView(R.layout.activity_created_by_splash_screen);
 
     }
 
