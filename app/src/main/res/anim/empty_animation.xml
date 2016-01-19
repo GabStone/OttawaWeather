@@ -2,6 +2,6 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android">
 
     <rotate
-        android:duration="3700"
+        android:duration="1650"
         ></rotate>
 </set>

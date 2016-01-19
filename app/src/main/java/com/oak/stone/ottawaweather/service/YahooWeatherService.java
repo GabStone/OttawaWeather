@@ -2,26 +2,19 @@ package com.oak.stone.ottawaweather.service;
 
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import com.oak.stone.ottawaweather.data.Channel;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * Created by Gabriel on 2016-01-17.
- */
 public class YahooWeatherService {
 
     private WeatherServiceCallBack callBack;
     private String location;
-
     private Exception error;
 
     public  YahooWeatherService(WeatherServiceCallBack callBack) {
@@ -39,12 +32,9 @@ public class YahooWeatherService {
             @Override
             protected String doInBackground(String... strings) {
 
-                //String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\")", strings[0]);
-
+                // Ottawa WOEID = 29375164
                 String YQL = String.format("select * from weather.forecast where woeid = 29375164", strings[0]);
 
-
-                // check this line later from tut #2
                 String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 
 
@@ -86,7 +76,7 @@ public class YahooWeatherService {
                     JSONObject queryResult = data.getJSONObject("query");
                     int count = queryResult.optInt("count");
 
-                    // not valid city (not data for that city)
+                    // not valid city or no data for that city
                     if (count == 0) {
                         callBack.serviceFailure(new LocationWeatherException("No Weather Information found for + " + location));
                         return;
@@ -100,23 +90,14 @@ public class YahooWeatherService {
                 } catch (JSONException e) {
                     callBack.serviceFailure(e);
                 }
-
-
             }
-
         }.execute(location);
     }
-
-
 
     public class LocationWeatherException extends Exception {
 
         public LocationWeatherException(String detailMessage) {
             super(detailMessage);
         }
-
     }
-
-
-
 }

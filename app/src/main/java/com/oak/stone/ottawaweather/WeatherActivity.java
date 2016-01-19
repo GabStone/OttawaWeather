@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.oak.stone.ottawaweather.data.Channel;
 import com.oak.stone.ottawaweather.data.Item;
 import com.oak.stone.ottawaweather.service.WeatherServiceCallBack;
@@ -22,7 +20,6 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
     private TextView conditionTextView;
     private TextView locationTextView;
     private TextView windChillTextView;
-
     private YahooWeatherService service;
     private ProgressDialog dialog;
 
@@ -33,9 +30,9 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
 
         weatherIconImageView = (ImageView) findViewById(R.id.imageView2);
         tempTextView = (TextView) findViewById(R.id.textView3);
-        conditionTextView = (TextView) findViewById(R.id.textView4);
-        locationTextView = (TextView) findViewById(R.id.textView5);
-        windChillTextView = (TextView) findViewById(R.id.textView6);
+        conditionTextView = (TextView) findViewById(R.id.textView5);
+        locationTextView = (TextView) findViewById(R.id.textView6);
+        windChillTextView = (TextView) findViewById(R.id.textView4);
 
         service = new YahooWeatherService(this);
         dialog = new ProgressDialog(this);
@@ -59,30 +56,27 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
         Drawable weatherIconDrawable = getResources().getDrawable(resourceId);
         weatherIconImageView.setImageDrawable(weatherIconDrawable);
 
-        int temp_f = item.getCondition().getTemp();
-
-        temp_f = temp_f - 32;
-        temp_f = (temp_f *5) / 9;
-
-        String og_units = channel.getUnits().getTemp();
+        int temp_f = ((item.getCondition().getTemp() - 32) * 5) / 9;
 
         tempTextView.setText(temp_f + "\u00B0" + "C");
         conditionTextView.setText(item.getCondition().getDescription());
 
-        int og_chill = channel.getWind().getChill();
+        int og_chill = ((channel.getWind().getChill() - 32) * 5) / 9;
 
-        og_chill = og_chill - 32;
-        og_chill = (og_chill*5) / 9;
-
-        windChillTextView.setText(og_chill + " this is the chill ");
-
-
-
+        windChillTextView.setText("Feels like " + og_chill + "\u00B0" + "C");
     }
 
     @Override
     public void serviceFailure(Exception exception) {
         dialog.hide();
         Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+    //Refresh the weather data on screen
+    public void refreshData(View view) {
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("loading...");
+        dialog.show();
+        service.refreshWeather("Ottawa, Ontario");
     }
 }
