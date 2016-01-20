@@ -38,8 +38,6 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
         dialog = new ProgressDialog(this);
         dialog.setMessage("loading...");
         dialog.show();
-
-
         service.refreshWeather("Ottawa, Ontario");
     }
 

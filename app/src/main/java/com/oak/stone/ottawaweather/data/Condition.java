@@ -10,7 +10,6 @@ public class Condition implements JSONpopulator {
 
     @Override
     public void populate(JSONObject data) {
-
         code = data.optInt("code");
         temp = data.optInt("temp");
         description = data.optString("text");

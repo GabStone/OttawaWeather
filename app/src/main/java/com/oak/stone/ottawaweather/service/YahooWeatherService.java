@@ -37,7 +37,6 @@ public class YahooWeatherService {
 
                 String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 
-
                 try {
                     URL url = new URL(endpoint);
                     URLConnection connection = url.openConnection();
@@ -64,7 +63,6 @@ public class YahooWeatherService {
 
             @Override
             protected void onPostExecute(String s) {
-
                 if (s == null && error != null) {
                     callBack.serviceFailure(error);
                     return;
@@ -95,7 +93,6 @@ public class YahooWeatherService {
     }
 
     public class LocationWeatherException extends Exception {
-
         public LocationWeatherException(String detailMessage) {
             super(detailMessage);
         }
