@@ -64,7 +64,7 @@
         android:id="@+id/button"
         android:clickable="true"
         android:onClick="refreshData"
-        android:textColor="#ff0103ff"
+        android:textColor="#ff322f3d"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
