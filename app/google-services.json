@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "1032432072780",
+    "project_id": "ottawaweather-b6fd4"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032432072780:android:d4eacb4839cc338c",
+        "android_client_info": {
+          "package_name": "com.oak.stone.ottawaweather"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq-X2qm2v3QbnyyhS75F0Tx7UCDYvDTLI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

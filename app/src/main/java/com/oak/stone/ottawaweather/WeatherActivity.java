@@ -2,6 +2,7 @@ package com.oak.stone.ottawaweather;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -76,5 +77,10 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
         dialog.setMessage("loading...");
         dialog.show();
         service.refreshWeather("Ottawa, Ontario");
+    }
+
+    public void forecast(View view) {
+        Intent intent = new Intent(this, ForecastActivity.class);
+        startActivity(intent);
     }
 }
