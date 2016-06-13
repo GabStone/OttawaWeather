@@ -113,11 +113,6 @@ public class ForecastActivity extends Activity implements WeatherServiceCallBack
 
 
 
-
-
-
-
-
     }
 
     @Override
