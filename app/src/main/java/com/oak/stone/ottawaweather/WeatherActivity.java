@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.oak.stone.ottawaweather.data.Channel;
 import com.oak.stone.ottawaweather.data.Item;
 import com.oak.stone.ottawaweather.service.WeatherServiceCallBack;
@@ -29,6 +33,8 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
+
+
         weatherIconImageView = (ImageView) findViewById(R.id.imageView2);
         tempTextView = (TextView) findViewById(R.id.textView3);
         conditionTextView = (TextView) findViewById(R.id.textView5);
@@ -40,6 +46,17 @@ public class WeatherActivity extends Activity implements WeatherServiceCallBack 
         dialog.setMessage("loading...");
         dialog.show();
         service.refreshWeather("Ottawa, Ontario");
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-6682971433930039~7125205503");
+
+                // Ad Mob
+                AdView adView = (AdView) findViewById(R.id.adViewWeather);
+                AdRequest adRequest = new AdRequest.Builder().build();
+                adView.loadAd(adRequest);
+
+
+
+
     }
 
     @Override

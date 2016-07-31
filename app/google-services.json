@@ -1,20 +1,27 @@
 {
   "project_info": {
-    "project_number": "1032432072780",
-    "project_id": "ottawaweather-b6fd4"
+    "project_number": "809999502034",
+    "firebase_url": "https://admob-app-id-7125205503.firebaseio.com",
+    "project_id": "admob-app-id-7125205503",
+    "storage_bucket": "admob-app-id-7125205503.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1032432072780:android:d4eacb4839cc338c",
+        "mobilesdk_app_id": "1:809999502034:android:d4eacb4839cc338c",
         "android_client_info": {
           "package_name": "com.oak.stone.ottawaweather"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "809999502034-ttgnfcjt9vcv441rbc2jedohe8thgrpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAq-X2qm2v3QbnyyhS75F0Tx7UCDYvDTLI"
+          "current_key": "AIzaSyCYts3-N-BCgR79fOtRyBXVlDuvzn5i_LQ"
         }
       ],
       "services": {
@@ -26,7 +33,7 @@
           "other_platform_oauth_client": []
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

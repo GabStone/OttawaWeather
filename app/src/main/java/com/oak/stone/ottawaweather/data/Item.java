@@ -27,9 +27,9 @@ public class Item implements JSONpopulator {
 
 
         try {
-            forecast[0].populate((JSONObject) forecastArray.get(0));
-            forecast[1].populate((JSONObject) forecastArray.get(1));
-            forecast[2].populate((JSONObject) forecastArray.get(2));
+            forecast[0].populate((JSONObject) forecastArray.get(1));
+            forecast[1].populate((JSONObject) forecastArray.get(2));
+            forecast[2].populate((JSONObject) forecastArray.get(3));
         } catch (JSONException e) {
             e.printStackTrace();
         }

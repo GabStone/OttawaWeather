@@ -6,7 +6,6 @@ public class Channel implements JSONpopulator {
 
     private Item item;
     private Wind wind;
-    private Forecast forecast;
 
     @Override
     public void populate(JSONObject data) {
