@@ -7,8 +7,8 @@ android {
         applicationId "com.oak.stone.ottawaweather"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 2
-        versionName "2"
+        versionCode 3
+        versionName "2.1"
         manifestPlaceholders = [manifestApplicationId: "${applicationId}",
                                 onesignal_app_id: "db86ac42-7683-4165-81fc-a8ec6fea6f17",
                                 onesignal_google_project_number: "1032432072780"]
