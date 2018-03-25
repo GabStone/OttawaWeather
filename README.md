@@ -1,4 +1,5 @@
-Native Android Mobile App release to the Google Play Store
+Native Android Mobile App released to the Google Play Store
+
 https://play.google.com/store/apps/details?id=com.oak.stone.ottawaweather&hl=en
 
 Welcome Fellow Ottawanians!
